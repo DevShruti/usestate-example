@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+// starts with use
+// component must be uppercase
+// invoke inside function/component body
+// don't call hooks conditonally
 
-function App() {
+const UseStateBasics = () => {
+  // console.log(useState());
+  // const value = useState()[0];
+  // const handler = useState()[1];
+  // console.log(value, handler);
+
+  const [text, setText] = useState('random title');
+  const handleClick = () => {
+    if (text === 'random title') {
+      setText('hello world');
+    } else {
+      setText('random title');
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <h1>{text}</h1>
+      <button type='button' className='btn' onClick={handleClick}>
+        change title
+      </button>
+    </React.Fragment>
   );
-}
+};
 
-export default App;
+export default UseStateBasics;
